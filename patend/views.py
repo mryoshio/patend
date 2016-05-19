@@ -1,3 +1,9 @@
+from django.http import HttpResponse
 from django.shortcuts import render
 
-# Create your views here.
+import inspect
+
+def index(request):
+    return HttpResponse(
+        'Hello from {}#{}'.format(__name__, inspect.stack()[0][3])
+    )
